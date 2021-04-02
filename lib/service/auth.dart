@@ -15,9 +15,9 @@ class Authorization {
     return _client;
   }
 
-  getAccessToken(String username, String password) async {
-    final authorizationEndpoint =
-        Uri.parse(GlobalVariables.urlEndPoint! + "/rest/v2/oauth/token?");
+  getAccessToken(String username, String password, String methodName) async {
+    final authorizationEndpoint = Uri.parse(
+        GlobalVariables.urlEndPoint! + "/rest/v2/" + methodName + "/token?");
 
     try {
       _client = await oauth2.resourceOwnerPasswordGrant(

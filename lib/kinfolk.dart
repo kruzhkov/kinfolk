@@ -29,9 +29,10 @@ class Kinfolk {
   /// getting client from saved Access Token
   static getClient() async => await Authorization().client;
 
-  /// getting client (service with Access Token) in first time with login,password
-  getToken(String login, String password) async =>
-      await Authorization().getAccessToken(login, password);
+  /// getting client (service with Access Token) in first time with login,password, methodName - oauth or ldap
+  getToken(String login, String password,
+          {String methodName = "oauth"}) async =>
+      await Authorization().getAccessToken(login, password, methodName);
 
   /// getting getFileUrl
   static getFileUrl(String fileDescriptorId) =>
